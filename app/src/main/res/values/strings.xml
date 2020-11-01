@@ -7,4 +7,9 @@
     <string name="logout">logout</string>
     <string name="textview">TextView</string>
     <string name="type_of_crop">Type of Crop</string>
+    <string name="home">home</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+
 </resources>
