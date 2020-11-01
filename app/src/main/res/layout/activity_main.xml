@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+   <RelativeLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+
+      <androidx.appcompat.widget.Toolbar
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="?attr/colorPrimary"
+          android:minHeight="?attr/actionBarSize"
+          app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+          app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+          app:title="Rago Login Screen"
+          app:titleTextColor="@android:color/holo_orange_dark"
+          app:titleMargin="20dp"
+          android:gravity="center"
+          >
+
+
+      </androidx.appcompat.widget.Toolbar>
+
+
+<!--   </RelativeLayout>-->
+
+
+      <EditText
+          android:id="@+id/editTextTextEmailAddress"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="250dp"
+          android:layout_marginEnd="20dp"
+          android:autofillHints="@string/enter_email_address"
+          android:hint="@string/enter_email_address"
+          android:inputType="textEmailAddress" />
+
+      <EditText
+       android:id="@+id/etPassword"
+       android:layout_below="@+id/editTextTextEmailAddress"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:layout_marginStart="20dp"
+       android:layout_marginEnd="20dp"
+       android:hint="@string/enter_password"
+       android:inputType="textPassword"
+       android:autofillHints="@string/enter_password" />
+
+
+   <CheckBox
+       android:id="@+id/chk_remember"
+       android:layout_below="@+id/etPassword"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="20dp"
+       android:text="@string/remember_me"
+       android:layout_marginLeft="20dp" />
+
+
+   <Button
+       android:id="@+id/button"
+       android:layout_below="@+id/chk_remember"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginStart="150dp"
+       android:text="@string/login"
+       android:textAllCaps="false"
+       android:layout_marginLeft="150dp" />
+   </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

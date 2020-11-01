@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Rago2</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">login</string>
+    <string name="remember_me">Remember_Me</string>
+    <string name="logout">logout</string>
+    <string name="textview">TextView</string>
+    <string name="type_of_crop">Type of Crop</string>
+</resources>
