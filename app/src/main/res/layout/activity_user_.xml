@@ -4,22 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:screenReaderFocusable="true"
-    android:scrollbarAlwaysDrawHorizontalTrack="true"
-    android:scrollbarAlwaysDrawVerticalTrack="true"
-    android:scrollbarStyle="outsideInset"
     tools:context=".User_Activity">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
@@ -37,20 +22,22 @@
         android:background="@drawable/ic_profile_24">
 
 
+
+
     </ImageView>
 
     <TextView
+        android:layout_below="@+id/img_View1"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/img_View1"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:text="want to book for pick up:"
+        android:text="want to book for pick up"
+        android:textStyle="bold"
         android:textColor="#EA094D"
         android:textColorHighlight="#091501"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_marginLeft="20dp" />
 
     <EditText
         android:id="@+id/et2"
@@ -58,16 +45,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/img_View1"
         android:layout_marginStart="50dp"
+        android:backgroundTintMode="screen"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:textColorHint="#000000"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="87dp"
-        android:background="#ffffff"
-        android:backgroundTintMode="screen"
-        android:clickable="true"
-        android:cursorVisible="true"
-        android:ellipsize="middle"
-        android:hint="Type of crope"
-        android:padding="10dp"
-        android:textColorHint="#000000" />
+        android:hint="Type of crope" />
 
     <EditText
         android:id="@+id/et3"
@@ -75,74 +59,74 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/et2"
         android:layout_marginStart="50dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="10dp"
-        android:background="#ffffff"
         android:backgroundTintMode="screen"
-        android:hint="type_of_crop:"
+        android:layout_marginTop="10dp"
         android:padding="10dp"
-        android:textColorHint="#BF1E1E" />
+        android:background="#ffffff"
+        android:textColorHint="#BF1E1E"
+        android:layout_marginLeft="150dp"
+        android:hint="type_of_crop" />
 
     <EditText
-        android:id="@+id/et4"
         android:layout_width="321dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et3"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:background="#ffffff"
-        android:backgroundTintMode="screen"
+        android:id="@+id/et4"
         android:hint="pick up date:"
-        android:inputType="date"
+        android:layout_marginTop="10dp"
         android:padding="10dp"
-        android:textColorHint="#000000" />
+        android:backgroundTintMode="screen"
+        android:layout_marginLeft="50dp"
+        android:textColorHint="#000000"
+        android:background="#ffffff"
+        android:inputType="date"
+        android:layout_below="@+id/et3" />
 
     <Button
-        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et4"
+        android:id="@+id/button4"
         android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
         android:layout_marginTop="30dp"
         android:padding="20dp"
-        android:text="Book" />
+        android:layout_below="@+id/et4"
+        android:text="Book"
+        android:layout_marginLeft="150dp" />
 
     <TextView
         android:id="@+id/tv_text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/button4"
+        android:padding="10dp"
         android:layout_marginLeft="20dp"
         android:background="@android:color/background_light"
-        android:padding="10dp"
-        android:text="You will receive confrmation via messageon your registered number"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:text="You will receive confrmation via messageon your registered number" />
 
     <TextView
-        android:id="@+id/tv_text3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/tv_text3"
         android:layout_below="@+id/tv_text2"
         android:layout_marginLeft="20dp"
         android:background="#ffffff"
         android:padding="10dp"
-        android:text="Still facing some problem on your booking"
+        android:textColor="#000000"
         android:textAllCaps="false"
-        android:textColor="#000000" />
+        android:text="Still facing some problem on your booking" />
 
     <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_text3"
         android:layout_marginLeft="150dp"
-        android:text="Enter booking ID" />
+        android:layout_below="@+id/tv_text3"
+        android:text="Enter booking ID"/>
 
     <Button
-        android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/button6"
         android:layout_below="@+id/button5"
         android:layout_marginLeft="150dp"
         android:text="Go" />
