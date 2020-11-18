@@ -1,90 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-   android:id="@+id/drawer"
-    tools:openDrawer="start"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:openDrawer="start">
 
-   <RelativeLayout
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-      <androidx.appcompat.widget.Toolbar
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:id="@+id/toolbar"
-          android:background="?attr/colorPrimary"
-          android:gravity="center"
-          android:minHeight="?attr/actionBarSize"
-          app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-          app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-          app:title="Rago Login Screen"
-          app:titleMargin="20dp"
-          app:titleTextColor="@android:color/holo_orange_dark">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:gravity="center"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:title="Rago Login Screen"
+            app:titleMargin="20dp"
+            app:titleTextColor="@android:color/holo_orange_dark">
 
 
-      </androidx.appcompat.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
 
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginEnd="20dp"
+            android:autofillHints="@string/enter_email_address"
+            android:hint="@string/enter_email_address"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/editTextTextEmailAddress"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:autofillHints="@string/enter_password"
+            android:hint="@string/enter_password"
+            android:inputType="textPassword" />
 
 
-
-      <EditText
-          android:id="@+id/editTextTextEmailAddress"
-          android:layout_width="match_parent"
-          android:layout_height="50dp"
-          android:layout_marginStart="20dp"
-          android:layout_marginTop="250dp"
-          android:layout_marginEnd="20dp"
-          android:autofillHints="@string/enter_email_address"
-          android:hint="@string/enter_email_address"
-          android:inputType="textEmailAddress" />
-
-      <EditText
-          android:id="@+id/etPassword"
-          android:layout_width="match_parent"
-          android:layout_height="50dp"
-          android:layout_below="@+id/editTextTextEmailAddress"
-          android:layout_marginStart="20dp"
-          android:layout_marginEnd="20dp"
-          android:autofillHints="@string/enter_password"
-          android:hint="@string/enter_password"
-          android:inputType="textPassword" />
+        <CheckBox
+            android:id="@+id/chk_remember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etPassword"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/remember_me" />
 
 
-      <CheckBox
-          android:id="@+id/chk_remember"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_below="@+id/etPassword"
-          android:layout_marginStart="20dp"
-          android:layout_marginLeft="20dp"
-          android:text="@string/remember_me" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chk_remember"
+            android:layout_marginStart="150dp"
+            android:layout_marginLeft="150dp"
+            android:text="@string/login"
+            android:textAllCaps="false" />
 
 
-      <Button
-          android:id="@+id/button"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_below="@+id/chk_remember"
-          android:layout_marginStart="150dp"
-          android:layout_marginLeft="150dp"
-          android:text="@string/login"
-          android:textAllCaps="false" />
-   </RelativeLayout>
-   <com.google.android.material.navigation.NavigationView
-       android:id="@+id/nav_view"
-       android:layout_width="wrap_content"
-       android:layout_height="match_parent"
-       android:layout_gravity="start"
-       android:fitsSystemWindows="true"
-       app:menu="@menu/menu"
-       app:headerLayout="@layout/navhader"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navhader"
+        app:itemBackground="@color/colorAccent"
+        app:menu="@menu/menu"
 
 
-       />
+        />
 
 </androidx.drawerlayout.widget.DrawerLayout>

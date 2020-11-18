@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "896114623173",
+    "firebase_url": "https://rago-efd08.firebaseio.com",
+    "project_id": "rago-efd08",
+    "storage_bucket": "rago-efd08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896114623173:android:d273f8d9407d53fbc626ac",
+        "android_client_info": {
+          "package_name": "com.example.rago2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896114623173-666ogkcnjdpg8qhk4iquolf2k5th9mqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rago2",
+            "certificate_hash": "3ad42b42c53446bca752f940f59789d5a6c85ffd"
+          }
+        },
+        {
+          "client_id": "896114623173-9o5n55it7nu644fiad63urm71i69feh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2iyZert2RZ4H8NZ0rpVhggY1FqLVsNWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896114623173-9o5n55it7nu644fiad63urm71i69feh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

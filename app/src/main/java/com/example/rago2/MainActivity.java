@@ -3,6 +3,7 @@ package com.example.rago2;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,18 +22,21 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.time.Instant;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText etenterEmail;
     private SharedPreferences.Editor editor;
     private EditText mEtPassword;
     private CheckBox mChRememberMe;
-
-
+    private int counter =5 ;
+    private Button button;
     NavigationView nav;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
+
 
 
     @Override
@@ -47,8 +51,13 @@ public class MainActivity extends AppCompatActivity {
        toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
        drawerLayout.addDrawerListener(toggle);
        toggle.syncState();
+        mEtPassword = findViewById(R.id.etPassword);
+        etenterEmail = findViewById(R.id.editTextTextEmailAddress);
+        mChRememberMe = findViewById(R.id.chk_remember);
+        button = findViewById(R.id.button);
 
-       nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
            @Override
            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -68,16 +77,18 @@ public class MainActivity extends AppCompatActivity {
            }
        });
 
-        mEtPassword = findViewById(R.id.etPassword);
-        etenterEmail = findViewById(R.id.editTextTextEmailAddress);
-        mChRememberMe = findViewById(R.id.chk_remember);
-        Button btnlogin = findViewById(R.id.button);
+//        mEtPassword = findViewById(R.id.etPassword);
+//        etenterEmail = findViewById(R.id.editTextTextEmailAddress);
+//        mChRememberMe = findViewById(R.id.chk_remember);
+//        Button btnlogin = findViewById(R.id.button);
 
         SharedPreferences prefManager = getApplicationContext().getSharedPreferences("SHARED", MODE_PRIVATE);
         editor = prefManager.edit();
-        btnlogin.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                validate(button.getText().toString(),mEtPassword.getText().toString());
                 String username = etenterEmail.getText().toString();
                 String password = mEtPassword.getText().toString();
 
@@ -99,6 +110,23 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
     }
+    private void validate(String userName, String userPassword) {
+        if ((userName == "Admine") && ( userPassword == "1234")){
+            Intent intent = new Intent(MainActivity.this, User_Activity.class);
+            startActivity(intent);
+        }else {
+
+            counter--;
+            if (counter==0) {
+                button.setEnabled(false);
+
+            }
+            }
+        }
+
+
+
+
     private void moveToUserActivity() {
         startActivity(new Intent(MainActivity.this, User_Activity.class));
         finish();

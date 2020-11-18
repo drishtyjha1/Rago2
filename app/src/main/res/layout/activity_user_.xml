@@ -47,41 +47,44 @@
 
     </ImageView>
 
-    <TextView
-        android:layout_below="@+id/img_View1"
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:padding="30dp"
-        android:text="want to book for pick up"
-        android:textStyle="bold"
-        android:textColor="#EA094D"
-        android:textColorHighlight="#091501"
-        android:textSize="30sp"
-        android:layout_marginLeft="20dp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_View1"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="want to book for pick up"
+            android:textColor="#EA094D"
+            android:textColorHighlight="#091501"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-    <EditText
+        <EditText
         android:id="@+id/et2"
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/img_View1"
         android:layout_marginStart="50dp"
-        android:backgroundTintMode="screen"
         android:background="#ffffff"
         android:padding="10dp"
         android:textColorHint="#000000"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="87dp"
-        android:hint="Type of crope" />
+        android:hint="Type of crope"
+            android:inputType="text"
+            android:textSize="20sp"/>
 
-    <EditText
+
+        <EditText
         android:id="@+id/et3"
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/et2"
         android:layout_marginStart="50dp"
-        android:backgroundTintMode="screen"
+            android:inputType="text"
         android:layout_marginTop="10dp"
         android:padding="10dp"
         android:background="#ffffff"
@@ -96,7 +99,6 @@
         android:hint="pick up date:"
         android:layout_marginTop="10dp"
         android:padding="10dp"
-        android:backgroundTintMode="screen"
         android:layout_marginLeft="50dp"
         android:textColorHint="#000000"
         android:background="#ffffff"
@@ -114,16 +116,18 @@
         android:text="Book"
         android:layout_marginLeft="150dp" />
 
-    <TextView
-        android:id="@+id/tv_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button4"
-        android:padding="10dp"
-        android:layout_marginLeft="20dp"
-        android:background="@android:color/background_light"
-        android:textColor="#000000"
-        android:text="You will receive confrmation via messageon your registered number" />
+        <TextView
+            android:id="@+id/tv_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button4"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/holo_blue_light"
+            android:fontFamily="casual"
+            android:padding="10dp"
+            android:text="You will receive confrmation via messageon your registered number"
+            android:textColor="#F40606"
+            android:textSize="18sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -152,6 +156,14 @@
         android:layout_below="@+id/button5"
         android:layout_marginLeft="150dp"
         android:text="Go" />
+
+
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view2"
