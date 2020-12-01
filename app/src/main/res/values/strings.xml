@@ -10,6 +10,11 @@
     <string name="home">home</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="SignUp" />
+    <string name="rago">(RAGO)</string>
+    <string name="resource_agriculture_garbage_organizar">Resource Agriculture Garbage Organizar</string>
+    <string name="signup">SignUp</string>
+    <string name="username">username</string>
 
 
 </resources>

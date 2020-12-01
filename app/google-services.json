@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "896114623173",
-    "firebase_url": "https://rago-efd08.firebaseio.com",
-    "project_id": "rago-efd08",
-    "storage_bucket": "rago-efd08.appspot.com"
+    "project_number": "1049432213946",
+    "firebase_url": "https://rago-5e5d7.firebaseio.com",
+    "project_id": "rago-5e5d7",
+    "storage_bucket": "rago-5e5d7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:896114623173:android:d273f8d9407d53fbc626ac",
+        "mobilesdk_app_id": "1:1049432213946:android:1ec5ef7b97376b8600f583",
         "android_client_info": {
           "package_name": "com.example.rago2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "896114623173-666ogkcnjdpg8qhk4iquolf2k5th9mqm.apps.googleusercontent.com",
+          "client_id": "1049432213946-osj4sanonkqd1epab3526r074165rjss.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.rago2",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "896114623173-9o5n55it7nu644fiad63urm71i69feh8.apps.googleusercontent.com",
+          "client_id": "1049432213946-90l0550ot06ee4khsbog3i6go8vtg1bj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB2iyZert2RZ4H8NZ0rpVhggY1FqLVsNWM"
+          "current_key": "AIzaSyCjZi_-Hp3kUHaOif_VWL5phOqAswpBfnc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "896114623173-9o5n55it7nu644fiad63urm71i69feh8.apps.googleusercontent.com",
+              "client_id": "1049432213946-90l0550ot06ee4khsbog3i6go8vtg1bj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

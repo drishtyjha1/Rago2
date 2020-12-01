@@ -6,37 +6,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    tools:openDrawer="start">
+   >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
             android:background="?attr/colorPrimary"
             android:gravity="center"
             android:minHeight="?attr/actionBarSize"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="Rago Login Screen"
+            app:title="LOGIN /SIGNUP"
             app:titleMargin="20dp"
             app:titleTextColor="@android:color/holo_orange_dark">
 
 
         </androidx.appcompat.widget.Toolbar>
 
+        <ImageView
+            android:id="@+id/iv_view2"
+            android:layout_width="match_parent"
+            android:layout_height="161dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/logo" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="250dp"
             android:layout_marginEnd="20dp"
+            android:background="@drawable/bg_edit_text"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:autofillHints="@string/username" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/username"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
             android:autofillHints="@string/enter_email_address"
+            android:background="@drawable/bg_edit_text"
             android:hint="@string/enter_email_address"
             android:inputType="textEmailAddress" />
 
@@ -46,37 +65,44 @@
             android:layout_height="50dp"
             android:layout_below="@+id/editTextTextEmailAddress"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:autofillHints="@string/enter_password"
+            android:background="@drawable/bg_edit_text"
             android:hint="@string/enter_password"
             android:inputType="textPassword" />
 
 
-        <CheckBox
-            android:id="@+id/chk_remember"
+        <Button
+            android:id="@+id/Signin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/etPassword"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:text="@string/remember_me" />
-
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/chk_remember"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="150dp"
             android:layout_marginLeft="150dp"
+            android:textSize="20sp"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/germania_one"
             android:text="@string/login"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="#FAF4F4" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Signin"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="150dp"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/baloo"
+            android:text="@string/signup"
+            android:textAllCaps="false"
+            android:textColor="#F6F2F2" />
 
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

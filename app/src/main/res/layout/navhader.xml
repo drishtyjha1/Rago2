@@ -7,22 +7,23 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="158dp"
         android:src="@drawable/ragoimg3" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/logo2"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="40dp"
-        android:textStyle="italic"
-        android:text="Rago"/>
+        android:textStyle="italic" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Resource Agriculture Garbage Organization"
         android:textStyle="bold"
+        android:background="@drawable/bg_text_view"
         android:textSize="30dp"
         android:textColor="@color/colorPrimary"/>
 </LinearLayout>
