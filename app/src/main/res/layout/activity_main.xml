@@ -102,6 +102,19 @@
             android:textAllCaps="false"
             android:textColor="#F6F2F2" />
 
+        <Button
+            android:id="@+id/google"
+            android:layout_width="79dp"
+            android:layout_height="44dp"
+            android:layout_below="@+id/button2"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_google"
+            android:fontFamily="@font/baloo"
+            android:textAllCaps="false"
+            android:textColor="#F6F2F2" />
+
 
     </RelativeLayout>
 

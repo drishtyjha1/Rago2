@@ -2,178 +2,178 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".User_Activity">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:gravity="center"
-            android:minHeight="?attr/actionBarSize"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title="Booking Form"
-            app:titleMargin="20dp"
-            app:titleTextColor="@android:color/holo_orange_dark">
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:gravity="center"
+                android:minHeight="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:title="Booking Form"
+                app:titleMargin="20dp"
+                app:titleTextColor="@android:color/holo_orange_dark">
 
 
-        </androidx.appcompat.widget.Toolbar>
+            </androidx.appcompat.widget.Toolbar>
 
-        <Button
-            android:id="@+id/btn_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/bg_button"
-            android:text="@string/logout"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/img_View1"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
-            android:layout_marginStart="300dp"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_profile_24">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="379dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="@string/want_to_book_for_pick_up"
+                    android:textColor="#EA094D"
+                    android:textColorHighlight="#091501"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
+                <EditText
+                    android:id="@+id/et5"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="187dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:hint="location"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textColorHint="#000000"
+                    android:textSize="20sp" />
 
-        </ImageView>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/img_View1"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30sp"
-            android:background="@drawable/bg_edit_text"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="want to book for pick up"
-            android:textColor="#EA094D"
-            android:textColorHighlight="#091501"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/et2"
-            android:layout_width="321dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/img_View1"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="87dp"
-            android:background="@drawable/bg_edit_text"
-            android:hint="Type of crope"
-            android:inputType="text"
-            android:padding="10dp"
-            android:textColorHint="#000000"
-            android:textSize="20sp" />
+                <EditText
+                    android:id="@+id/et2"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et5"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="100dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:hint="Land area in acres"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textColorHint="#000000"
+                    android:textSize="20sp" />
 
 
-        <EditText
-            android:id="@+id/et3"
-            android:layout_width="321dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et2"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_edit_text"
-            android:hint="type_of_crop"
-            android:inputType="text"
-            android:padding="10dp"
-            android:textColorHint="#BF1E1E" />
+                <EditText
+                    android:id="@+id/et3"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/et2"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:hint="type_of_crop"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textColorHint="#BF1E1E" />
 
-        <EditText
-            android:id="@+id/et4"
-            android:layout_width="321dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et3"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_edit_text"
-            android:hint="pick up date:"
-            android:inputType="date"
-            android:padding="10dp"
-            android:textColorHint="#000000" />
+                <EditText
+                    android:id="@+id/et4"
+                    android:layout_width="321dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et3"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:hint="pick up date:"
+                    android:inputType="date"
+                    android:padding="10dp"
+                    android:textColorHint="#000000" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et4"
-            android:layout_marginStart="150dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bg_button"
-            android:padding="20dp"
-            android:text="Book" />
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et4"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_button"
+                    android:padding="20dp"
+                    android:text="Book" />
 
-        <TextView
-            android:id="@+id/tv_text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/button4"
-            android:background="@color/colorAccent"
-            android:fontFamily="casual"
-            android:padding="10dp"
-            android:text="You will receive confrmation via messageon your registered number"
-            android:textColor="#F40606"
-            android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/button4"
+                    android:background="@color/colorAccent"
+                    android:fontFamily="casual"
+                    android:padding="10dp"
+                    android:text="You will receive confrmation via messageon your registered number"
+                    android:textColor="#F40606"
+                    android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tv_text3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_text2"
-            android:layout_marginLeft="20dp"
-            android:background="#ffffff"
-            android:padding="10dp"
-            android:text="Still facing some problem on your booking"
-            android:textAllCaps="false"
-            android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/tv_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_text2"
+                    android:layout_marginLeft="20dp"
+                    android:background="#ffffff"
+                    android:padding="10dp"
+                    android:text="Still facing some problem on your booking"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_text3"
-            android:layout_marginLeft="150dp"
-            android:background="@drawable/bg_button"
-            android:text="Enter booking ID" />
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_text3"
+                    android:layout_marginLeft="150dp"
+                    android:background="@drawable/bg_button"
+                    android:text="Enter booking ID" />
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button5"
-            android:layout_marginLeft="150dp"
-            android:background="@drawable/bg_button"
-            android:text="Go" />
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/button5"
+                    android:layout_marginLeft="150dp"
+                    android:background="@drawable/bg_button"
+                    android:text="Go" />
+            </RelativeLayout>
 
-
-    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view2"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:menu="@menu/menu"
         app:headerLayout="@layout/navhader"
+        app:menu="@menu/menu"
 
 
         />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

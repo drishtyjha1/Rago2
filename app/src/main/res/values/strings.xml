@@ -15,6 +15,11 @@
     <string name="resource_agriculture_garbage_organizar">Resource Agriculture Garbage Organizar</string>
     <string name="signup">SignUp</string>
     <string name="username">username</string>
+    <string name="profile">Profile</string>
+    <string name="edit">Edit</string>
+    <string name="settings">Settings</string>
+    <string name="welcome_to_you_in">WELCOME TO YOU IN</string>
+    <string name="want_to_book_for_pick_up">want to book for pick up</string>
 
 
 </resources>
