@@ -199,9 +199,6 @@ public class MainActivity extends AppCompatActivity {
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
-
-
         mEtPassword = findViewById(R.id.etPassword);
         etenterEmail = findViewById(R.id.editTextTextEmailAddress);
         imageView = findViewById(R.id.iv_view2);

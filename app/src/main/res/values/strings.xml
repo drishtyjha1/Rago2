@@ -23,6 +23,8 @@
     <string name="location">location</string>
     <string name="land_area_in_acres">Land area in acres</string>
     <string name="still_facing_some_problem_on_your_booking">Still facing some problem on your booking</string>
+    <string name="sign_up">Sign up</string>
+    <string name="enter_booking_id">Enter booking ID</string>
 
 
 </resources>

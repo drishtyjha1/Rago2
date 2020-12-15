@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
@@ -83,10 +84,10 @@
             android:layout_marginLeft="150dp"
             android:textSize="20sp"
             android:background="@drawable/bg_button"
-            android:fontFamily="@font/germania_one"
+            android:fontFamily="@font/bungee_shade"
             android:text="@string/login"
             android:textAllCaps="false"
-            android:textColor="#FAF4F4" />
+            android:textColor="#0E0E0E" />
 
         <Button
             android:id="@+id/button2"
@@ -97,10 +98,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="150dp"
             android:background="@drawable/bg_button"
-            android:fontFamily="@font/baloo"
-            android:text="@string/signup"
-            android:textAllCaps="false"
-            android:textColor="#F6F2F2" />
+            android:fontFamily="@font/bungee_shade"
+            android:text="@string/sign_up"
+            android:textAllCaps="true"
+            android:textColor="#0B0A0A" />
 
         <Button
             android:id="@+id/google"
@@ -125,7 +126,7 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/navhader"
         app:itemBackground="@color/colorAccent"
-        app:menu="@menu/menu"
+        app:menu="@menu/menu1"
 
 
         />
