@@ -39,6 +39,8 @@ public class User_Activity extends AppCompatActivity {
         binding = ActivityUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
+        toolbar = (Toolbar) findViewById(id.toolbar1);
+        setSupportActionBar(toolbar);
         drawerLayout = (DrawerLayout) findViewById(id.drawer2);
         navi = (NavigationView) findViewById(id.nav_view2);
 

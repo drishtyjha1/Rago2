@@ -20,6 +20,9 @@
     <string name="settings">Settings</string>
     <string name="welcome_to_you_in">WELCOME TO YOU IN</string>
     <string name="want_to_book_for_pick_up">want to book for pick up</string>
+    <string name="location">location</string>
+    <string name="land_area_in_acres">Land area in acres</string>
+    <string name="still_facing_some_problem_on_your_booking">Still facing some problem on your booking</string>
 
 
 </resources>

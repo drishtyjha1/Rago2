@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+                android:id="@+id/toolbar1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary"
@@ -52,13 +52,11 @@
 
                 <EditText
                     android:id="@+id/et5"
-                    android:layout_width="321dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="100dp"
                     android:layout_marginTop="187dp"
                     android:background="@drawable/bg_edit_text"
-                    android:hint="location"
+                    android:hint="@string/location"
                     android:inputType="text"
                     android:padding="10dp"
                     android:textColorHint="#000000"
@@ -66,13 +64,12 @@
 
                 <EditText
                     android:id="@+id/et2"
-                    android:layout_width="321dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/et5"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="100dp"
-                    android:background="@drawable/bg_edit_text"
-                    android:hint="Land area in acres"
+                    android:layout_marginTop="10dp"
+                     android:background="@drawable/bg_edit_text"
+                    android:hint="@string/land_area_in_acres"
                     android:inputType="text"
                     android:padding="10dp"
                     android:textColorHint="#000000"
@@ -81,11 +78,9 @@
 
                 <EditText
                     android:id="@+id/et3"
-                    android:layout_width="321dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/et2"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="150dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/bg_edit_text"
                     android:hint="type_of_crop"
@@ -95,11 +90,10 @@
 
                 <EditText
                     android:id="@+id/et4"
-                    android:layout_width="321dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/et3"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="10dp"
+                   android:layout_marginTop="10dp"
                     android:background="@drawable/bg_edit_text"
                     android:hint="pick up date:"
                     android:inputType="date"
@@ -135,12 +129,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_text2"
-                    android:layout_marginLeft="20dp"
                     android:background="#ffffff"
                     android:padding="10dp"
-                    android:text="Still facing some problem on your booking"
+                    android:text="@string/still_facing_some_problem_on_your_booking"
                     android:textAllCaps="false"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                     />
 
                 <Button
                     android:id="@+id/button5"
