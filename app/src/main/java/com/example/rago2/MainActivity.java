@@ -213,6 +213,9 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.menu_profile:
+
+                       Intent intent =new Intent(MainActivity.this,Profile1.class);
+                       startActivity(intent);
                         Toast.makeText(getApplicationContext(), "Home panel is open", Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;

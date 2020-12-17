@@ -25,6 +25,25 @@
     <string name="still_facing_some_problem_on_your_booking">Still facing some problem on your booking</string>
     <string name="sign_up">Sign up</string>
     <string name="enter_booking_id">Enter booking ID</string>
+    <string name="phone_number">phone Number</string>
+    <string name="go">Go</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="name">Name</string>
+    <string name="profession">Profession</string>
+    <string name="email">Email</string>
+    <string name="email_id">email_id</string>
+    <string-array name="crops">
 
+        <item>Kharif Crops</item>
+
+        <item>Rabi Crops </item>
+        <item>Zaid Crops    </item>
+        <item>corn   </item>
+        <item>rice </item>
+        <item>wheat   </item>
+        <item>potatoes </item>
+        <item>beans   </item>
+
+    </string-array>
 
 </resources>

@@ -15,7 +15,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.rago2.databinding.ActivityUserBinding;
@@ -24,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import static com.example.rago2.R.*;
 
-public class User_Activity extends AppCompatActivity {
+public class User_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     ActivityUserBinding binding;
     FirebaseAuth auth;
     NavigationView navi;
@@ -44,6 +47,11 @@ public class User_Activity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(id.drawer2);
         navi = (NavigationView) findViewById(id.nav_view2);
 
+        Spinner spinner=findViewById(id.et3);
+        ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, array.crops, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
 
 
@@ -58,6 +66,7 @@ public class User_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_profile:
+                        startActivity(new Intent(User_Activity.this, Profile1.class));
                         Toast.makeText(getApplicationContext(), "profile panel is open", Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
@@ -119,7 +128,7 @@ public class User_Activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_profile:
-                startActivity(new Intent(User_Activity.this, MainActivity.class));
+                startActivity(new Intent(User_Activity.this, Profile1.class));
                 Toast.makeText(getApplicationContext(), "profile panel is open", Toast.LENGTH_LONG).show();
 
 
@@ -144,5 +153,16 @@ public class User_Activity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),text,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
