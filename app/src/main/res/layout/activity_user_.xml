@@ -102,14 +102,15 @@
 
                 <Spinner
                     android:id="@+id/et3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
                     android:layout_below="@id/et2"
                     android:layout_marginTop="10dp"
+
                     android:background="@drawable/bg_edit_text"
-                    android:hint="type_of_crop"
-                    android:inputType="text"
+                    android:hint="@string/type_of_crops"
                     android:padding="10dp"
+
                     />
 
                 <EditText
@@ -120,7 +121,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/bg_edit_text"
                     android:hint="pick up date:"
-                    android:inputType="date"
+                    android:inputType="datetime"
                     android:padding="10dp"
                      />
 

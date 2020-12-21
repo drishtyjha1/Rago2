@@ -10,7 +10,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,12 +20,30 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.rago2.Models.All_UserMember;
+import com.example.rago2.Models.Booking_UsersMember;
 import com.example.rago2.databinding.ActivityUserBinding;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.example.rago2.R.*;
 
@@ -31,7 +51,19 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
     ActivityUserBinding binding;
     FirebaseAuth auth;
     NavigationView navi;
+    EditText etName,etAddress,etLandArea,etDate,etPhone,etBookingId;
+    Button btnBooking;
+    Spinner spinner;
     ActionBarDrawerToggle toggle;
+    ProgressBar progressBar;
+    UploadTask uploadTask;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    DocumentReference documentReference;
+    Booking_UsersMember bookingUsersMember;
+    String currentUserId;
+
     Toolbar toolbar;
     DrawerLayout drawerLayout;
 
@@ -41,13 +73,27 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
         super.onCreate(savedInstanceState);
         binding = ActivityUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        bookingUsersMember=new Booking_UsersMember();
         auth = FirebaseAuth.getInstance();
         toolbar = (Toolbar) findViewById(id.toolbar1);
         setSupportActionBar(toolbar);
         drawerLayout = (DrawerLayout) findViewById(id.drawer2);
         navi = (NavigationView) findViewById(id.nav_view2);
+        etName=findViewById(R.id.et9);
+        etAddress=findViewById(R.id.et5);
+        etLandArea=findViewById(R.id.et2);
+        etDate=findViewById(R.id.et4);
+        etPhone=findViewById(R.id.et7);
+        etBookingId=findViewById(R.id.et6);
+        btnBooking=findViewById(id.button4);
 
-        Spinner spinner=findViewById(id.et3);
+        spinner=findViewById(id.et3);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        currentUserId = user.getUid();
+        documentReference = db.collection("user").document(currentUserId);
+        databaseReference = database.getReference("Booking Users");
+
         ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, array.crops, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -59,7 +105,12 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-
+btnBooking.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        uploadData();
+    }
+});
 
         navi.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -114,6 +165,42 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
 //                finish();
 //            }
 //        });
+
+    }
+
+    private void uploadData() {
+        final String name = etName.getText().toString();
+        String address = etAddress.getText().toString();
+        String landArea = etLandArea.getText().toString();
+        String date = etDate.getText().toString();
+        String phone = etPhone.getText().toString();
+
+        if (!TextUtils.isEmpty(name) || !TextUtils.isEmpty(address) ||!TextUtils.isEmpty(landArea)
+                ||!TextUtils.isEmpty(date) ||!TextUtils.isEmpty(phone) ){
+         Task<Uri> urlTask =uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+             @Override
+             public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+              if (!task.isSuccessful()){
+                  throw task.getException();
+              }
+                 return null;
+             }
+         })  .addOnCompleteListener(new OnCompleteListener<Uri>() {
+             @Override
+             public void onComplete(@NonNull Task<Uri> task) {
+
+                 if (task.isSuccessful()){
+                     Uri downloadUri =task.getResult();
+
+                     Map<String,String> Booking = new HashMap<>();
+                     Booking.put("name",name);
+
+                 }
+             }
+         });
+
+
+        }
 
     }
 

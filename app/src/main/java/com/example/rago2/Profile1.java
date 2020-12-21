@@ -43,7 +43,7 @@ public class Profile1 extends AppCompatActivity {
     Button button;
     ImageView imageView;
     ProgressBar progressBar;
-    Uri imageuri;
+    Uri imageUri;
     UploadTask uploadTask;
     StorageReference storageReference;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -64,6 +64,7 @@ public class Profile1 extends AppCompatActivity {
         etBio = findViewById(R.id.et_bio);
         etEmail = findViewById(R.id.et_email_cp);
         etName = findViewById(R.id.et_name_cp);
+        progressBar=findViewById(R.id.progressbar);
         etProfession = findViewById(R.id.et_profession_cp);
         etWeb = findViewById(R.id.et_web_cp);
         button=findViewById(R.id.btn_cp);
@@ -80,7 +81,7 @@ public class Profile1 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uplodeData();
+                uploadData();
             }
         });
 
@@ -90,7 +91,7 @@ public class Profile1 extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivity(intent);
+                startActivityForResult(intent,PICK_IMAGE);
             }
         });
     }
@@ -101,9 +102,9 @@ public class Profile1 extends AppCompatActivity {
         try {
             if (requestCode == PICK_IMAGE || requestCode == RESULT_OK ||
                     data != null || data.getData() != null) {
-                imageuri = data.getData();
+                imageUri = data.getData();
 
-                Picasso.get().load(imageuri).into(imageView);
+                Picasso.get().load(imageUri).into(imageView);
 
             }
 
@@ -117,21 +118,24 @@ public class Profile1 extends AppCompatActivity {
     private String getFileExt(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
-        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+
+        return mimeTypeMap.getExtensionFromMimeType((contentResolver.getType(uri)));
     }
 
-    private void uplodeData() {
-        final String name = etName.getText().toString();
-        final String bio = etBio.getText().toString();
+    private void uploadData() {
+         final String name = etName.getText().toString();
+         final String bio = etBio.getText().toString();
         final String web = etWeb.getText().toString();
         final String prof = etProfession.getText().toString();
         final String email = etEmail.getText().toString();
 
-        if (!TextUtils.isEmpty(name) || !TextUtils.isEmpty(bio) || !TextUtils.isEmpty(web) || !TextUtils.isEmpty(prof) || !TextUtils.isEmpty(email) || imageuri != null) {
+        if (!TextUtils.isEmpty(name) || !TextUtils.isEmpty(bio) || !TextUtils.isEmpty(web)
+                || !TextUtils.isEmpty(prof)
+                || !TextUtils.isEmpty(email) || imageUri != null) {
             progressBar.setVisibility(View.VISIBLE);
-            final StorageReference reference = storageReference.child(System.currentTimeMillis() + "," + getFileExt(imageuri));
-            uploadTask = reference.putFile(imageuri);
-            Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            final StorageReference reference = storageReference.child(System.currentTimeMillis() + "," + getFileExt(imageUri));
+            uploadTask = reference.putFile(imageUri);
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override
                 public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
                     if (!task.isSuccessful()) {
@@ -144,24 +148,27 @@ public class Profile1 extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
 
                     if (task.isSuccessful()) {
-                        Uri downlodeUri = task.getResult();
+                        Uri downloadUri = task.getResult();
 
                         Map<String, String> profile = new HashMap<>();
                         profile.put("name",name);
                         profile.put("prof",prof);
-                        profile.put("url",downlodeUri.toString());
+                        profile.put("url",downloadUri.toString());
                         profile.put("email",email);
                         profile.put("web",web);
-                        profile.put("privacy","Public");
                         profile.put("bio",bio);
+                        profile.put("uid",currentUserId);
+                        profile.put("privacy","Public");
+
 
                         member.setName(name);
                         member.setProf(prof);
                         member.setUid(currentUserId);
-                        member.setUrl(downlodeUri.toString());
+                        member.setUrl(downloadUri.toString());
 
                         databaseReference.child(currentUserId).setValue(member);
-                        documentReference.set(profile).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        documentReference.set(profile)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
 

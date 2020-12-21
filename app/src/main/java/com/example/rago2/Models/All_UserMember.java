@@ -1,12 +1,10 @@
 package com.example.rago2.Models;
 
-import android.net.Uri;
-
 public class All_UserMember {
-   String name,uid,prof,url;
-public All_UserMember(){
+    String name,uid,prof,url;
 
-}
+    public All_UserMember() {
+    }
 
     public String getName() {
         return name;

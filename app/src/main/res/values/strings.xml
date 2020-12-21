@@ -32,6 +32,7 @@
     <string name="profession">Profession</string>
     <string name="email">Email</string>
     <string name="email_id">email_id</string>
+    <string name="type_of_crops">type_of_crop</string>
     <string-array name="crops">
 
         <item>Kharif Crops</item>
@@ -45,5 +46,7 @@
         <item>beans   </item>
 
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

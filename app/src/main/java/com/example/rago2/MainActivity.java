@@ -37,6 +37,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    DocumentReference documentReference;
+    DatabaseReference databaseReference;
+    String currentUserId;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
     GoogleSignInClient mgoogleSignInClient;
@@ -71,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        databaseReference = database.getReference("User");
+
+        documentReference = db.collection("user").document(currentUserId);
+
 
 
         progressDialog = new ProgressDialog(MainActivity.this);

@@ -23,81 +23,90 @@
         android:layout_height="150dp"
         app:cardPreventCornerOverlap="false"
         app:cardCornerRadius="75dp"
-        android:layout_marginBottom="30dp">
+        android:layout_marginBottom="20dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/iv_cp"
-            android:background="@drawable/ic_profile_24"
+            android:src="@drawable/ic_add_img"
             android:clickable="true"
             android:scaleType="fitCenter"
             android:focusable="true" />
 
+
+
     </androidx.cardview.widget.CardView>
-
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="name"
         android:id="@+id/et_name_cp"
-        android:layout_margin="4dp"
-        android:drawablePadding="7dp"
-        android:drawableLeft="@drawable/ic_profile_24"
-        android:paddingLeft="10dp"
-        android:textColor="@android:color/black"
-         />
-
-    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/profession"
-        android:textColorHint="#000000"
+        android:layout_height="50dp"
+       android:layout_margin="4dp"
+        android:background="@drawable/bg_edit_text"
+        android:hint="name"
+        android:drawableLeft="@drawable/ic_profile_24"
+        android:inputType="text"
+  />
+    <EditText
         android:id="@+id/et_profession_cp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_margin="4dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/bg_edit_text"
+        android:hint="@string/profession"
         android:drawablePadding="7dp"
         android:drawableLeft="@drawable/ic_baseline_work_24"
-        android:paddingLeft="10dp"
-        android:textColor="@android:color/black"/>
+        android:inputType="text"
+      />
+
     <EditText
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/bg_edit_text"
         android:hint="Bio"
         android:id="@+id/et_bio"
         android:layout_margin="4dp"
         android:drawablePadding="7dp"
         android:drawableLeft="@drawable/ic_bio"
         android:paddingLeft="10dp"
-        android:textColor="@android:color/black"/>
-
+        android:inputType="text"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="@string/email"
         android:id="@+id/et_email_cp"
         android:layout_margin="4dp"
         android:paddingStart="5dp"
+        android:background="@drawable/bg_edit_text"
         android:drawablePadding="7dp"
         android:textColor="@android:color/black"
         android:drawableLeft="@drawable/ic_baseline_email_24"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="Website"
         android:id="@+id/et_web_cp"
         android:layout_margin="4dp"
         android:drawablePadding="7dp"
+        android:background="@drawable/bg_edit_text"
         android:drawableLeft="@drawable/ic_baseline_public_24"
         android:paddingLeft="10dp"
+        android:inputType="textWebEditText"
         android:textColor="@android:color/black"/>
 
 
     <Button
         android:layout_width="match_parent"
         android:text="Save Profile"
-        android:layout_margin="10dp"
+        android:layout_margin="6dp"
         android:background="@android:color/holo_red_light"
         android:textColor="@android:color/white"
         android:textSize="20sp"
@@ -107,10 +116,14 @@
 
 
     <ProgressBar
+        android:id="@+id/progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:rotation="8"
+        android:rotationX="4"
+        android:rotationY="12"
         android:visibility="invisible"
-        android:id="@+id/progressbar"/>
+        />
 
 </LinearLayout>
