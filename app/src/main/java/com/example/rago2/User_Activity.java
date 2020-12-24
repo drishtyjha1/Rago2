@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,6 +31,7 @@ import com.example.rago2.Models.Booking_UsersMember;
 import com.example.rago2.databinding.ActivityUserBinding;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,10 +53,11 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
     ActivityUserBinding binding;
     FirebaseAuth auth;
     NavigationView navi;
-    EditText etName,etAddress,etLandArea,etDate,etPhone,etBookingId;
+    EditText etName, etAddress, etLandArea, etDate, etPhone, etBookingId, etCrop;
     Button btnBooking;
-    Spinner spinner;
+    //    Spinner spinner;
     ActionBarDrawerToggle toggle;
+    StorageReference storageReference;
     ProgressBar progressBar;
     UploadTask uploadTask;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -71,46 +74,54 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = ActivityUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        bookingUsersMember=new Booking_UsersMember();
+
+        bookingUsersMember = new Booking_UsersMember();
+
         auth = FirebaseAuth.getInstance();
-        toolbar = (Toolbar) findViewById(id.toolbar1);
+        toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        progressBar = findViewById(R.id.progressbar1);
         setSupportActionBar(toolbar);
+
         drawerLayout = (DrawerLayout) findViewById(id.drawer2);
         navi = (NavigationView) findViewById(id.nav_view2);
-        etName=findViewById(R.id.et9);
-        etAddress=findViewById(R.id.et5);
-        etLandArea=findViewById(R.id.et2);
-        etDate=findViewById(R.id.et4);
-        etPhone=findViewById(R.id.et7);
-        etBookingId=findViewById(R.id.et6);
-        btnBooking=findViewById(id.button4);
 
-        spinner=findViewById(id.et3);
+        etName = findViewById(R.id.et9);
+        etAddress = findViewById(R.id.et5);
+        etLandArea = findViewById(R.id.et2);
+        etDate = findViewById(R.id.et4);
+        etPhone = findViewById(R.id.et7);
+        etBookingId = findViewById(R.id.et6);
+        etCrop = findViewById(R.id.et3);
+        btnBooking = findViewById(id.button4);
+
+//        spinner = findViewById(id.et3);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         currentUserId = user.getUid();
+
         documentReference = db.collection("user").document(currentUserId);
         databaseReference = database.getReference("Booking Users");
 
-        ArrayAdapter<CharSequence>adapter=ArrayAdapter.createFromResource(this, array.crops, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, array.crops, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setAdapter(adapter);
+//        spinner.setOnItemSelectedListener(this);
 
 
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-btnBooking.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        uploadData();
-    }
-});
+        btnBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadData();
+            }
+        });
+
 
         navi.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -137,7 +148,6 @@ btnBooking.setOnClickListener(new View.OnClickListener() {
 
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-
 
 
                 }
@@ -170,36 +180,71 @@ btnBooking.setOnClickListener(new View.OnClickListener() {
 
     private void uploadData() {
         final String name = etName.getText().toString();
-        String address = etAddress.getText().toString();
-        String landArea = etLandArea.getText().toString();
-        String date = etDate.getText().toString();
-        String phone = etPhone.getText().toString();
-
-        if (!TextUtils.isEmpty(name) || !TextUtils.isEmpty(address) ||!TextUtils.isEmpty(landArea)
-                ||!TextUtils.isEmpty(date) ||!TextUtils.isEmpty(phone) ){
-         Task<Uri> urlTask =uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-             @Override
-             public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-              if (!task.isSuccessful()){
-                  throw task.getException();
-              }
-                 return null;
-             }
-         })  .addOnCompleteListener(new OnCompleteListener<Uri>() {
-             @Override
-             public void onComplete(@NonNull Task<Uri> task) {
-
-                 if (task.isSuccessful()){
-                     Uri downloadUri =task.getResult();
-
-                     Map<String,String> Booking = new HashMap<>();
-                     Booking.put("name",name);
-
-                 }
-             }
-         });
+        final String address = etAddress.getText().toString();
+        final String landArea = etLandArea.getText().toString();
+        final String date = etDate.getText().toString();
+        final String phone = etPhone.getText().toString();
+        String croptype = etCrop.getText().toString();
 
 
+        if (!TextUtils.isEmpty(name) || !TextUtils.isEmpty(address) || !TextUtils.isEmpty(landArea)
+                || !TextUtils.isEmpty(date) || !TextUtils.isEmpty(phone)) {
+
+            progressBar.setVisibility(View.VISIBLE);
+//
+//            Task<Uri> urlTask =uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+//                @Override
+//             public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+//                    if (!task.isSuccessful()) {
+//                        throw task.getException();
+//                    }
+//                    return null;
+//                }
+//         })  .addOnCompleteListener(new OnCompleteListener<Uri>() {
+//             @Override
+//             public void onComplete(@NonNull Task<Uri> task) {
+//
+//                 if (task.isSuccessful()){
+//                     Uri downloadUri =task.getResult();
+
+            Map<String, String> Booking = new HashMap<>();
+            Booking.put("name", name);
+            Booking.put("address", address);
+            Booking.put("cropType", croptype);
+            Booking.put("landArea", landArea);
+            Booking.put("date", date);
+            Booking.put("phone", phone);
+            Booking.put("uid", currentUserId);
+
+
+            bookingUsersMember.setName(name);
+            bookingUsersMember.setAddress(address);
+            bookingUsersMember.setPhoneNo(phone);
+            bookingUsersMember.setLandArea(landArea);
+            bookingUsersMember.getCroptype(croptype);
+            bookingUsersMember.setUid(currentUserId);
+
+
+            databaseReference.child(currentUserId).setValue(bookingUsersMember);
+            documentReference.set(Booking).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(User_Activity.this, "Booking Succesfull", Toast.LENGTH_LONG).show();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(User_Activity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    }, 2000);
+                }
+//                     });
+//                 }
+//             }
+            });
+        } else {
+            Toast.makeText(this, "please fill all Fields", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -245,7 +290,7 @@ btnBooking.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(),text,Toast.LENGTH_LONG).show();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_LONG).show();
     }
 
     @Override

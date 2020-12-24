@@ -1,7 +1,7 @@
 package com.example.rago2.Models;
 
 public class Booking_UsersMember {
-    String name,address,landArea,uid,phoneNo;
+    String name,address,landArea,uid,phoneNo,url,croptype;
  public Booking_UsersMember(){
 
  }
@@ -44,4 +44,21 @@ public class Booking_UsersMember {
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getCroptype(String croptype) {
+        return this.croptype;
+    }
+
+    public void setCroptype(String croptype) {
+        this.croptype = croptype;
+    }
 }
+

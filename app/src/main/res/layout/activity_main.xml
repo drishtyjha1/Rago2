@@ -23,7 +23,7 @@
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:title="LOGIN /SIGNUP"
             app:titleMargin="20dp"
-            app:titleTextColor="@android:color/holo_orange_dark">
+            app:titleTextColor="@color/colorAccent">
 
 
         </androidx.appcompat.widget.Toolbar>

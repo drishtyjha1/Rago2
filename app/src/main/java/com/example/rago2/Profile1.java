@@ -131,7 +131,9 @@ public class Profile1 extends AppCompatActivity {
 
         if (!TextUtils.isEmpty(name) || !TextUtils.isEmpty(bio) || !TextUtils.isEmpty(web)
                 || !TextUtils.isEmpty(prof)
-                || !TextUtils.isEmpty(email) || imageUri != null) {
+                || !TextUtils.isEmpty(email) || imageUri != null)
+        {
+
             progressBar.setVisibility(View.VISIBLE);
             final StorageReference reference = storageReference.child(System.currentTimeMillis() + "," + getFileExt(imageUri));
             uploadTask = reference.putFile(imageUri);

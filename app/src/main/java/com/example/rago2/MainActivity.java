@@ -40,6 +40,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         databaseReference = database.getReference("User");
 
-        documentReference = db.collection("user").document(currentUserId);
+//        documentReference = db.collection("user").document(currentUserId);
 
 
 
@@ -107,6 +109,23 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+
+                                    if(task.getResult().getAdditionalUserInfo().isNewUser()){
+
+                                        String email =user.getEmail();
+                                        String uid =user.getUid();
+
+                                        HashMap<Object,String>hashMap =new HashMap<>();
+
+                                        hashMap.put("email",email);
+                                        hashMap.put("uid",uid);
+
+                                        FirebaseDatabase database=FirebaseDatabase.getInstance();
+                                        DatabaseReference reference =database.getReference("Users_profile");
+                                        reference.child(uid).setValue(hashMap);
+
+                                    }
                                     Intent intent = new Intent(MainActivity.this, User_Activity.class);
                                     startActivity(intent);
                                 } else {

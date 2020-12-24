@@ -11,7 +11,7 @@
        <RelativeLayout
            android:layout_width="match_parent"
            android:layout_height="180dp"
-           android:background="#F39165">
+           android:background="@drawable/bg_gradient1">
        </RelativeLayout>
 
         <LinearLayout
@@ -19,17 +19,46 @@
                android:layout_height="120dp"
                android:orientation="horizontal"
             android:layout_marginTop="100dp">
-               <ImageView
-                   android:id="@+id/iv_icon"
-                   android:layout_width="120dp"
-                   android:layout_height="120dp"
-                   android:layout_marginLeft="20dp"
-                   android:background="#58D143"
-                   android:padding="5dp"
-                   android:src="@drawable/ic_add_img"
-                   android:layout_marginStart="20dp">
 
-               </ImageView>
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/bg_gradient1"
+                android:padding="5dp"
+                android:src="@drawable/ic_add_img"
+                android:layout_marginStart="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nameTv"
+                    android:text="@string/name"
+
+                    android:textSize="16sp"
+                    android:textColor="#ffffff"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/emailTv"
+                    android:textColor="#ffffff"
+                    android:layout_margin="5dp"
+                    android:text="@string/email"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:id="@+id/phoneTv"
+                    android:textColor="#ffffff"
+                    android:text="@string/phone"/>
+
+            </LinearLayout>
 
 
            </LinearLayout>
