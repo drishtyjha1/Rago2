@@ -95,7 +95,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/bg_edit_text"
                     android:hint="@string/phone_number"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:padding="10dp"
                     android:textSize="20sp" />
 
@@ -106,7 +106,7 @@
                     android:layout_height="50dp"
                     android:layout_below="@id/et2"
                     android:layout_marginTop="10dp"
-
+                    android:inputType="text"
                     android:background="@drawable/bg_edit_text"
                     android:hint="@string/type_of_crops"
                     android:padding="10dp"
@@ -121,7 +121,7 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/bg_edit_text"
                     android:hint="pick up date:"
-                    android:inputType="datetime"
+                    android:inputType="date"
                     android:padding="10dp" />
 
                 <Button
