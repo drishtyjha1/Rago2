@@ -19,10 +19,10 @@ public class Users {
 
     //Signup Constructor
 
-    public Users( String username, String password, String email) {
+    public Users( String username, String email, String password) {
         this.username = username;
-        this.password = password;
         this.email = email;
+        this.password = password;
     }
 
 

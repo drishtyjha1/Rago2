@@ -133,29 +133,6 @@ public class MainActivity extends AppCompatActivity {
                                 }
 
 
-//                                if (task.isSuccessful()) {
-//                                    Users users = new Users(binding.username.getText().toString(),binding.editTextTextEmailAddress.getText().toString(),binding.etPassword.getText().toString());
-//
-//                                    String id = task.getResult().getUser().getUid();
-//                                    database.getReference().child("User").child(id).setValue(users).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                        @Override
-//                                        public void onSuccess(Void aVoid) {
-//                                            Log.i("success", "success");
-//
-//                                        }
-//
-//                                    }).addOnFailureListener(new OnFailureListener() {
-//                                        @Override
-//                                        public void onFailure(@NonNull Exception e) {
-//                                            Log.i("error", e.getMessage());
-//                                        }
-//                                    });
-//
-//
-//                                    Toast.makeText(MainActivity.this, "UserCreated Successfully", Toast.LENGTH_LONG).show();
-//                                } else {
-//                                    Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
-//                                }
 
                             }
                         });
@@ -264,74 +241,7 @@ public class MainActivity extends AppCompatActivity {
         etenterEmail = findViewById(R.id.editTextTextEmailAddress);
         Button btnlogin = findViewById(R.id.Signin);
 
-//        SharedPreferences prefManager = getApplicationContext().getSharedPreferences("SHARED", MODE_PRIVATE);
-//        editor = prefManager.edit();
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
 //
-//                validate(button.getText().toString(),mEtPassword.getText().toString());
-//                String username = etenterEmail.getText().toString();
-//                String password = mEtPassword.getText().toString();
-//
-//
-//                boolean isRemember = mChRememberMe.isChecked();
-//                if (isRemember) {
-//                    editor.putString("USERNAME", username);
-//                    editor.putString("PASSWORD", password);
-//                    editor.putString("ISREMEMBER", String.valueOf(isRemember));
-//
-//                    editor.apply();
-//                }
-//                moveToUserActivity();
-//            }
-//        });
-//    }
-//
-////        boolean isAlreadyLogin=prefManager.getBoolean("ISREMEMBER",true);
-////        if (isAlreadyLogin){
-////            moveToUserActivity();
-////        }
-////
-////    }
-//    private void validate(String userName, String userPassword) {
-//        if ((userName == "Admine") && ( userPassword == "1234")){
-//            Intent intent = new Intent(MainActivity.this, User_Activity.class);
-//            startActivity(intent);
-//        }else {
-//
-//            counter--;
-//            if (counter==0) {
-//                button.setEnabled(false);
-//
-//            }
-//            }
-//        }
-//
-//
-//
-//
-//    private void moveToUserActivity() {
-//        startActivity(new Intent(MainActivity.this, User_Activity.class));
-//        finish();
-//    }
-//
-//        @Override
-//        protected void onActivityResult ( int requestCode, int resultCode, @Nullable Intent data){
-//
-//            super.onActivityResult(requestCode, resultCode, data);
-//            SharedPreferences prefManager = getApplicationContext().getSharedPreferences("SHARED", MODE_PRIVATE);
-//            SharedPreferences.Editor editor;
-//            editor = prefManager.edit();
-//            if (requestCode == 1000) {
-//                if (resultCode == Activity.RESULT_OK) {
-//                    String editedUsername = data.getExtras().getString("EDITED_USERNAME");
-//                    etenterEmail.setText(editedUsername);
-//
-//                } else {
-//                    Toast.makeText(MainActivity.this, "user Cancelled operation", Toast.LENGTH_LONG).show();
-//                }
-//            }
     }
 
 

@@ -54,7 +54,7 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
     FirebaseAuth auth;
     NavigationView navi;
     EditText etName, etAddress, etLandArea, etDate, etPhone, etBookingId, etCrop;
-    Button btnBooking;
+    Button btnBooking,goComplaint;
     //    Spinner spinner;
     ActionBarDrawerToggle toggle;
     StorageReference storageReference;
@@ -88,6 +88,7 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
         drawerLayout = (DrawerLayout) findViewById(id.drawer2);
         navi = (NavigationView) findViewById(id.nav_view2);
 
+        goComplaint=findViewById(id.button6);
         etName = findViewById(R.id.et9);
         etAddress = findViewById(R.id.et5);
         etLandArea = findViewById(R.id.et2);
@@ -115,6 +116,12 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        goComplaint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Complain is successsfully send to the Admin ",Toast.LENGTH_LONG).show();
+            }
+        });
         btnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -260,7 +267,7 @@ public class User_Activity extends AppCompatActivity implements AdapterView.OnIt
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_profile:
-                startActivity(new Intent(User_Activity.this, Profile1.class));
+                startActivity(new Intent(User_Activity.this,Profile1.class));
                 Toast.makeText(getApplicationContext(), "profile panel is open", Toast.LENGTH_LONG).show();
 
 
